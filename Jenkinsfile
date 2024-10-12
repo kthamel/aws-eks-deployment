@@ -24,6 +24,12 @@ pipeline {
             steps {
                 sh 'helm install app-nginx ./application-nginx'
             }
+        }
+
+        stage('Helm deployment list') {
+            steps {
+                sh 'helm list -a'
+            }
         }    
     }
 }
