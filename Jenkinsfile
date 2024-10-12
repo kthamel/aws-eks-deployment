@@ -13,5 +13,11 @@ pipeline {
                 sh 'aws eks update-kubeconfig --region us-east-1 --name kthamel-eks-cluster'
             }
         }
+
+        stage('List nodes') {
+            steps {
+                sh 'kubectl get nodes'
+            }
+        }    
     }
 }
