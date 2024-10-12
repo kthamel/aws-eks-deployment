@@ -8,9 +8,9 @@ pipeline {
             }
         }
 
-        stage('Check files') {
+        stage('Select cluster') {
             steps {
-                sh 'ls -l'
+                sh 'aws eks update-kubeconfig --region us-east-1 --name kthamel-eks-cluster'
             }
         }
     }
