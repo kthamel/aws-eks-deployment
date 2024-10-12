@@ -18,6 +18,12 @@ pipeline {
             steps {
                 sh 'kubectl get nodes'
             }
+        }
+
+        stage('Application deployment') {
+            steps {
+                sh 'helm install app-nginx ./application-nginx'
+            }
         }    
     }
 }
