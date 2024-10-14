@@ -22,10 +22,10 @@ pipeline {
 
         stage('Application deployment') {
             steps {
-                sh 'helm lint ./application-nginx'
-                sh 'helm install app-nginx --debug --dry-run ./application-nginx'
-                sh 'helm template ./application-nginx'
-                sh 'helm install app-nginx ./application-nginx'
+                sh 'helm lint ./helm-app-python'
+                sh 'helm install app-python --debug --dry-run ./helm-app-python'
+                sh 'helm template ./helm-app-python'
+                sh 'helm install app-python ./helm-app-python'
             }
         }
 
