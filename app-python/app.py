@@ -7,7 +7,7 @@ app = Flask(__name__)
 def function_flask():
     if(request.method == 'GET'):
         name = int(psutil.virtual_memory().used / (1024 ** 2))
-        content = (f"Used Memory is {name} MB")
+        content = (f"{name} MB used")
         return jsonify(content)
     
 if __name__ == '__main__':
