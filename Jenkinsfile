@@ -22,20 +22,20 @@ pipeline {
 
         stage('Application deployment') {
             parallel {
-                stage('Application deployment - Nginx') {
+                stage('Application deployment - Nginx-A') {
                     steps {
-                        sh 'helm lint ./helm-app-nginx'
-                        sh 'helm install app-nginx --debug --dry-run ./helm-app-nginx'
-                        sh 'helm template ./helm-app-nginx'
-                        sh 'helm install app-nginx ./helm-app-nginx'
+                        sh 'helm lint ./helm-app-nginx-a'
+                        sh 'helm install app-nginx-a --debug --dry-run ./helm-app-nginx-a'
+                        sh 'helm template ./helm-app-nginx-a'
+                        sh 'helm install app-nginx-a ./helm-app-nginx-a'
                     }
                 }   
-                stage('Application deployment - Python') {
+                stage('Application deployment - Nginx-B') {
                     steps {
-                        sh 'helm lint ./helm-app-python'
-                        sh 'helm install app-python --debug --dry-run ./helm-app-python'
-                        sh 'helm template ./helm-app-python'
-                        sh 'helm install app-python ./helm-app-python'
+                        sh 'helm lint ./helm-app-nginx-b'
+                        sh 'helm install app-nginx-b --debug --dry-run ./helm-app-nginx-b'
+                        sh 'helm template ./helm-app-nginx-b'
+                        sh 'helm install app-nginx-b ./helm-app-nginx-b'
                     }
                 }
             }
